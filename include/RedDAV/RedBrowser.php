@@ -48,7 +48,8 @@ class RedBrowser extends DAV\Browser\Plugin {
 		parent::initialize($server);
 
 		$this->server->on('beforeMethod',        [$this, 'redBeforeMethod'], 10);
-		$this->auth->log();
+		$this->server->on('onBrowserPostAction', [$this, 'redPostAction']);
+		//$this->auth->log();
 	}
 
 	/**
@@ -76,7 +77,7 @@ class RedBrowser extends DAV\Browser\Plugin {
 		switch($method) {
 
 			case 'POST' :
-logger("POST: " . $path);
+				logger('POST: ' . $path);
 			case 'GET' :
 			case 'HEAD' :
 			case 'OPTIONS' :
@@ -84,7 +85,6 @@ logger("POST: " . $path);
 				//$this->checkPrivileges($path,'{DAV:}read');
 				logger('GET/HEAD/OPTIONS');
 
-				// set owner_ in RedBasicAuth
 				$file = $path;
 				$x = strpos($file, 'cloud');
 				if ($x === false)
@@ -93,6 +93,7 @@ logger("POST: " . $path);
 					$file = substr($file, 5);
 				}
 				if ((! $file) || ($file === '/')) {
+					$this->enablePost = false;
 					return;
 				}
 				$file = trim($file, '/');
@@ -114,8 +115,6 @@ logger("POST: " . $path);
 				$this->auth->owner_id = $r[0]['channel_id'];
 				$this->auth->owner_nick = $channel_name;
 
-
-				// set enablePost, @TODO check event for this
 				if (! $this->auth->owner_id) {
 					$this->enablePost = false;
 				}
@@ -161,6 +160,63 @@ logger("POST: " . $path);
 
 				break;
 		}
+	}
+
+	/**
+	 * @brief Handle our events from POST actions.
+	 *
+	 * Provides delete support for sabreAction.
+	 *
+	 */
+	function redPostAction($uri, $action, $postVars) {
+		$ret = true;
+
+		logger('uri: ' . $uri . ' action: ' . $action . ' postVars: ' . print_r($postVars, true));
+
+		switch ($action) {
+			case 'del' :
+				// @TODO move to top when all forms have security token.
+				check_form_security_token_redirectOnErr('/' . $uri);
+
+				if (! isset($postVars['attachId'])) {
+					$ret = false;
+					logger('No attachId provided in POST variables.');
+					notice( t('The request was incomplete. Could not delete the asset.') . EOL);
+					break;
+				}
+
+				logger('Delete attach: ' . $postVars['attachId'] . ' from channel: ' . $postVars['channel']);
+
+				$observer = get_app()->get_observer();
+				$ob_hash = (($observer) ? $observer['xchan_hash'] : '');
+
+				$perms = get_all_perms($this->auth->owner_id, $ob_hash);
+
+				if (! $perms['write_storage']) {
+					$ret = false;
+					logger('Observer has no write_storage, so can not delete this asset.');
+					notice( t('Permission denied.') . EOL);
+					break;
+				}
+
+				$r = q("SELECT hash FROM attach WHERE id = %d AND uid = %d",
+					intval($postVars['attachId']),
+					intval($this->auth->owner_id)
+				);
+				if(! $r) {
+					$ret = false;
+					notice( t('File not found.') . EOL);
+					break;
+				}
+
+				$f = $r[0];
+				attach_delete($this->auth->owner_id, $f['hash']);
+
+				$ret = true;
+				break;
+		}
+
+		return $ret;
 	}
 
 	/**
@@ -281,10 +337,10 @@ logger("POST: " . $path);
 
 			// put the array for this file together
 			$ft['attachId'] = $this->findAttachIdByHash($attachHash);
-			$ft['fileStorageUrl'] = substr($fullPath, 0, strpos($fullPath, "cloud/")) . "filestorage/" . $this->auth->getCurrentUser();
+			$ft['fileStorageUrl'] = substr($fullPath, 0, strpos($fullPath, 'cloud/')) . 'filestorage/' . $this->auth->getCurrentUser();
 			$ft['icon'] = $icon;
 			$ft['attachIcon'] = (($size) ? $attachIcon : '');
-			// @todo Should this be an item value, not a global one?
+			// @todo is_owner is not item specific. Do we need it here?
 			$ft['is_owner'] = $is_owner;
 			$ft['fullPath'] = $fullPath;
 			$ft['displayName'] = $displayName;
@@ -335,7 +391,9 @@ logger("POST: " . $path);
 				'$shared' => t('Shared'),
 				'$create' => t('Create'),
 				'$upload' => t('Upload'),
-				'$is_owner' => $is_owner
+				'$is_owner' => $is_owner,
+				'$channel' => $this->auth->getCurrentUser(),
+				'$sectoken' => get_form_security_token()
 			));
 
 		$html .= replace_macros(get_markup_template('cloud_directory.tpl'), array(

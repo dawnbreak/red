@@ -26,8 +26,7 @@
 			<td class="cloud-index-tool">{{$item.attachIcon}}</td>
 			<td id="file-edit-{{$item.attachId}}" class="cloud-index-tool"></td>
 			<td class="cloud-index-tool"><i class="fakelink icon-pencil" onclick="filestorage(event, '{{$nick}}', {{$item.attachId}});"></i></td>
-			<td class="cloud-index-tool"><a href="{{$item.fileStorageUrl}}/{{$item.attachId}}/delete" title="{{$delete}}" onclick="return confirmDelete();"><i class="icon-trash drop-icons"></i></a></td>
-
+			<td class="cloud-index-tool"><button type="submit" form="form_delete" name="attachId" value="{{$item.attachId}}" title="{{$delete}}" onclick="return confirmDelete();" class="btn btn-xs btn-link icon-trash drop-icons"></td>
 	{{else}}
 			<td></td><td></td><td></td><td></td>
 	{{/if}}
