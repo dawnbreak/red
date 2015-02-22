@@ -2,7 +2,8 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV;
+use Sabre\DAV,
+    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
 
 /**
  * @brief This class represents a file in DAV.
@@ -12,10 +13,13 @@ use Sabre\DAV;
  * @extends \Sabre\DAV\Node
  * @implements \Sabre\DAV\IFile
  *
+ * @todo move quota checks to own plugin
  * @link http://github.com/friendica/red
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
-class RedFile extends DAV\Node implements DAV\IFile {
+class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
+
+	use ACLTrait;
 
 	/**
 	 * The file from attach table.
@@ -42,12 +46,15 @@ class RedFile extends DAV\Node implements DAV\IFile {
 	 *
 	 * @param string $name
 	 * @param array $data from attach table
-	 * @param &$auth
+	 * @param RedDAV\RedBasicAuth $auth
 	 */
-	public function __construct($name, $data, &$auth) {
+	public function __construct($name, $data, AuthPlugin $auth) {
 		$this->name = $name;
 		$this->data = $data;
 		$this->auth = $auth;
+
+		// DAVACL
+		$this->owner = 'principals/channels/' . $this->auth->owner_hash;
 
 		//logger(print_r($this->data, true), LOGGER_DATA);
 	}
@@ -79,7 +86,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 
 		$newName = str_replace('/', '%2F', $newName);
 
-		$r = q("UPDATE attach SET filename = '%s' WHERE hash = '%s' AND id = %d",
+		q("UPDATE attach SET filename = '%s' WHERE hash = '%s' AND id = %d",
 			dbesc($newName),
 			dbesc($this->data['hash']),
 			intval($this->data['id'])
@@ -133,7 +140,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 		// returns now()
 		$edited = datetime_convert();
 
-		$d = q("UPDATE attach SET filesize = '%s', edited = '%s' WHERE hash = '%s' AND uid = %d",
+		q("UPDATE attach SET filesize = '%s', edited = '%s' WHERE hash = '%s' AND uid = %d",
 			dbesc($size),
 			dbesc($edited),
 			dbesc($this->data['hash']),
@@ -141,7 +148,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 		);
 
 		// update the folder's lastmodified timestamp
-		$e = q("UPDATE attach SET edited = '%s' WHERE hash = '%s' AND uid = %d",
+		q("UPDATE attach SET edited = '%s' WHERE hash = '%s' AND uid = %d",
 			dbesc($edited),
 			dbesc($r[0]['folder']),
 			intval($c[0]['channel_id'])
@@ -160,7 +167,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 
 		$limit = service_class_fetch($c[0]['channel_id'], 'attach_upload_limit');
 		if ($limit !== false) {
-			$x = q("select sum(filesize) as total from attach where aid = %d ",
+			$x = q("SELECT SUM(filesize) AS total FROM attach WHERE aid = %d ",
 				intval($c[0]['channel_account_id'])
 			);
 			if (($x) && ($x[0]['total'] + $size > $limit)) {
@@ -196,6 +203,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 				$f = 'store/' . $this->auth->owner_nick . '/' . (($this->os_path) ? $this->os_path . '/' : '') . dbunescbin($r[0]['data']);
 				return fopen($f, 'rb');
 			}
+
 			return dbunescbin($r[0]['data']);
 		}
 	}
@@ -209,6 +217,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 	 *
 	 * Return null if the ETag can not effectively be determined.
 	 *
+	 * @bug $this->data['hash'] is not qualifying as an ETag as it does not change when file changes.
 	 * @return null|string
 	 */
 	public function getETag() {
@@ -216,6 +225,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 		if ($this->data['hash']) {
 			$ret = '"' . $this->data['hash'] . '"';
 		}
+
 		return $ret;
 	}
 
@@ -232,6 +242,7 @@ class RedFile extends DAV\Node implements DAV\IFile {
 		if (in_array($this->data['filetype'], $unsafe_types)) {
 			return 'text/plain';
 		}
+
 		return $this->data['filetype'];
 	}
 

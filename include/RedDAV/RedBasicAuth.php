@@ -66,8 +66,6 @@ class RedBasicAuth extends DAV\Auth\Backend\AbstractBasic {
 	/**
 	 * @brief The channel_address of the currently visited path.
 	 *
-	 * Set in RedDirectory::getDir().
-	 *
 	 * Used for creating the path in cloud/
 	 *
 	 * @var string
