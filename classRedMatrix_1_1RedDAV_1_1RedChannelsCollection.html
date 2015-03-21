@@ -153,7 +153,8 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Collection of <a class="el" href="namespaceRedMatrix.html" title="Class Import. ">RedMatrix</a> channels. </p>
 <p>A class that creates a list of accessible channels as an collection to be used as a node in a Sabre server node tree.</p>
-<p><a class="el" href="">Klaus Weidenbach  <a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </a></p>
+<dl class="section author"><dt>Author</dt><dd>Klaus Weidenbach </dd></dl>
+<dl class="section user"><dt>License:</dt><dd><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aae254accb3c4e500eec6f38351abe2ee"></a>
 <div class="memitem">
@@ -195,7 +196,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if a child-node exists. </p>
-<p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedChannelsCollection.html#a769d1939112420efab1f3c8e8e1dafa7" title="Checks if a child-node exists. ">childExists()</a> gets called when we don't have yet a complete <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a> object. Especially owner_ is not yet available. This is also the reason why we can not create <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a> entries here.</p>
+<p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedChannelsCollection.html#a769d1939112420efab1f3c8e8e1dafa7" title="Checks if a child-node exists. ">childExists()</a> gets called when we don't have yet a complete <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a>\<a class="el" href="classRedMatrix_1_1RedDAV_1_1RedBasicAuth.html" title="Authentication backend class for RedDAV. ">RedBasicAuth</a> object. Especially owner_ is not yet available. This is also the reason why we can not create <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a>\<a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html" title="This class represents a directory node in DAV. ">RedDirectory</a> entries here.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$name</td><td>Name of a channel to check. </td></tr>
@@ -204,10 +205,11 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\Forbidden</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -226,7 +228,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a specific child node, referenced by its name. </p>
-<p>This method must throw Sabre if the node does not exist.</p>
+<p>This method must throw \Sabre\DAV\Exception\NotFound if the node does not exist.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$name</td><td></td></tr>
@@ -235,10 +237,12 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\NotFound</td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\Forbidden</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>\Sabre\DAV\INode in our case it is always a <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a>\<a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html" title="This class represents a directory node in DAV. ">RedDirectory</a> </dd></dl>
 
 </div>
 </div>
@@ -256,8 +260,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns an array with all viewable the channels. </p>
-<p>Get a list of <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a> objects with all the channels where the visitor (observer) has <b>view_storage</b> perms.</p>
-<dl class="section return"><dt>Returns</dt><dd>[] </dd></dl>
+<p>Get a list of <a class="el" href="namespaceRedMatrix_1_1RedDAV.html">RedDAV</a>\<a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html" title="This class represents a directory node in DAV. ">RedDirectory</a> objects with all the channels where the visitor (observer) has <b>view_storage</b> perms.</p>
+<dl class="section return"><dt>Returns</dt><dd>\Sabre\DAV\INode[] </dd></dl>
 
 </div>
 </div>

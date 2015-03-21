@@ -17,6 +17,7 @@ var annotated =
     [ "FriendicaSmartyEngine", "classFriendicaSmartyEngine.html", "classFriendicaSmartyEngine" ],
     [ "Item", "classItem.html", "classItem" ],
     [ "ITemplateEngine", "interfaceITemplateEngine.html", "interfaceITemplateEngine" ],
+    [ "MysqlProvider", "classMysqlProvider.html", "classMysqlProvider" ],
     [ "photo_driver", "classphoto__driver.html", "classphoto__driver" ],
     [ "photo_gd", "classphoto__gd.html", "classphoto__gd" ],
     [ "photo_imagick", "classphoto__imagick.html", "classphoto__imagick" ],

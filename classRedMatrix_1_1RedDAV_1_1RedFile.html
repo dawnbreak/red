@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('classRedMatrix_1_1RedDAV_1_1RedFile.ht
 </div><!--header-->
 <div class="contents">
 
-<p>This class represents a file in DAV.  
+<p>This class represents a file node in DAV.  
  <a href="classRedMatrix_1_1RedDAV_1_1RedFile.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RedMatrix\RedDAV\RedFile:</div>
@@ -129,8 +129,8 @@ Inheritance diagram for RedMatrix\RedDAV\RedFile:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a91258fb425ab483dcd0aa7a0a1322a53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a91258fb425ab483dcd0aa7a0a1322a53">__construct</a> ($name, $data, AuthPlugin $auth)</td></tr>
-<tr class="separator:a91258fb425ab483dcd0aa7a0a1322a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3877203daa6e42991b21266fd0d48a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#aa3877203daa6e42991b21266fd0d48a4">__construct</a> ($name, $data, RedAuth $auth)</td></tr>
+<tr class="separator:aa3877203daa6e42991b21266fd0d48a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac945aa782d6c035d339e59974266ec4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#ac945aa782d6c035d339e59974266ec4d">getName</a> ()</td></tr>
 <tr class="memdesc:ac945aa782d6c035d339e59974266ec4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the file.  <a href="#ac945aa782d6c035d339e59974266ec4d">More...</a><br /></td></tr>
 <tr class="separator:ac945aa782d6c035d339e59974266ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,11 +169,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab722dcb8c4598426c81fa2b2e4fad5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class represents a file in DAV. </p>
+<div class="textblock"><p>This class represents a file node in DAV. </p>
 <p>It provides all functions to work with files in Red's cloud through DAV protocol.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>move quota checks to own plugin <a class="el" href=""><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </a></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>move quota checks to own plugin</dd></dl>
+<dl class="section user"><dt>License:</dt><dd><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a91258fb425ab483dcd0aa7a0a1322a53"></a>
+<a class="anchor" id="aa3877203daa6e42991b21266fd0d48a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -192,7 +193,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AuthPlugin&#160;</td>
+          <td class="paramtype">RedAuth&#160;</td>
           <td class="paramname"><em>$auth</em>&#160;</td>
         </tr>
         <tr>
@@ -232,7 +233,7 @@ Private Attributes</h2></td></tr>
 <p>This method checks the permissions and then calls <a class="el" href="include_2attach_8php.html#a70bd666e080c2af5a91f5d14c297b8cd" title="Delete a file/directory from a channel. ">attach_delete()</a> function to actually remove the file.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\Forbidden</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -292,8 +293,8 @@ Private Attributes</h2></td></tr>
 <p>Returns the ETag for a file. </p>
 <p>An ETag is a unique identifier representing the current version of the file. If the file changes, the ETag MUST change. The ETag is an arbitrary string, but MUST be surrounded by double-quotes.</p>
 <p>Return null if the ETag can not effectively be determined.</p>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>$this-&gt;data['hash'] is not qualifying as an ETag as it not updates. <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
-</dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>$this-&gt;data['hash'] is not qualifying as an ETag as it does not change when file changes.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 </div>
 </div>
@@ -393,7 +394,13 @@ Private Attributes</h2></td></tr>
 <p>Renames the file. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">Sabre</td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\Forbidden</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$newName</td><td>The new name of the file. </td></tr>
   </table>
   </dd>
 </dl>
@@ -419,7 +426,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a91258fb425ab483dcd0aa7a0a1322a53">RedMatrix\RedDAV\RedFile\__construct()</a>.</p>
+<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#aa3877203daa6e42991b21266fd0d48a4">RedMatrix\RedDAV\RedFile\__construct()</a>.</p>
 
 </div>
 </div>
@@ -441,7 +448,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a91258fb425ab483dcd0aa7a0a1322a53">RedMatrix\RedDAV\RedFile\__construct()</a>, and <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a709ec1288d21ddf1353524435ab916f0">RedMatrix\RedDAV\RedFile\put()</a>.</p>
+<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#aa3877203daa6e42991b21266fd0d48a4">RedMatrix\RedDAV\RedFile\__construct()</a>, and <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a709ec1288d21ddf1353524435ab916f0">RedMatrix\RedDAV\RedFile\put()</a>.</p>
 
 </div>
 </div>
@@ -463,7 +470,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a91258fb425ab483dcd0aa7a0a1322a53">RedMatrix\RedDAV\RedFile\__construct()</a>.</p>
+<p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#aa3877203daa6e42991b21266fd0d48a4">RedMatrix\RedDAV\RedFile\__construct()</a>.</p>
 
 </div>
 </div>

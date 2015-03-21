@@ -10,7 +10,6 @@ var widgets_8php =
     [ "widget_clock", "widgets_8php.html#a9d60539db68042e63c0015abd69a6f7a", null ],
     [ "widget_collections", "widgets_8php.html#aa189a07241246d97efbee29f1c6a6f7f", null ],
     [ "widget_design_tools", "widgets_8php.html#a145ff35319cfa47a9cc07f9425bd674b", null ],
-    [ "widget_dirsafemode", "widgets_8php.html#a268b01ce1ab8fe2cb346cb769b9d1091", null ],
     [ "widget_dirsort", "widgets_8php.html#a95c06bc9be133e89768746302d2ac395", null ],
     [ "widget_dirtags", "widgets_8php.html#a08035db02ff6a23260146b4c64153422", null ],
     [ "widget_filer", "widgets_8php.html#a5ab3b64496e02cab56429978ad55f1c0", null ],

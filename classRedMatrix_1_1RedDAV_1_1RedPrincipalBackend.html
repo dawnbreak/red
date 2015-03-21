@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('classRedMatrix_1_1RedDAV_1_1RedPrincip
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html" title="RedPrincipalBackend implementation. ">RedPrincipalBackend</a> implementation.  
+<p>PrincipalBackend implementation of Sabre\DAVACL\PrincipalBackend\AbstractBackend.  
  <a href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RedMatrix\RedDAV\RedPrincipalBackend:</div>
@@ -144,11 +144,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a106d39d218adc07a3234484b89bd45b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html" title="RedPrincipalBackend implementation. ">RedPrincipalBackend</a> implementation. </p>
+<div class="textblock"><p>PrincipalBackend implementation of Sabre\DAVACL\PrincipalBackend\AbstractBackend. </p>
 <p>This backend provides principals for DAV from the <a class="el" href="namespaceRedMatrix.html" title="Class Import. ">RedMatrix</a> channels and collections. I am not yet completely sure how this will map with all the other advanced concepts of <a class="el" href="namespaceRedMatrix.html" title="Class Import. ">RedMatrix</a>.</p>
 <p>We have custom principal URL schemas. All user principals are in a collection under 'principals/channels' and all group principals are in a collection under 'principals/collections'.</p>
-<p>right now we use xcan_hash as the uri. Maybe it would be nicer to use xchan_addr?</p>
-<p><a class="el" href="">Klaus Weidenbach  <a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </a></p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>right now we use xcan_hash as the uri. Maybe it would be nicer to use xchan_addr?</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Klaus Weidenbach </dd></dl>
+<dl class="section user"><dt>License:</dt><dd><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af26946f0e4cb23135d702e8b4e757891"></a>
 <div class="memitem">
@@ -172,10 +173,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\NotFound</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
 </div>
 </div>
@@ -192,18 +194,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Finds a principal by its URI.</p>
-<p>This method may receive any type of uri, but mailto: addresses will be the most common.</p>
-<p>Implementation of this API is optional. It is currently used by the CalDAV system to find principals based on their email addresses. If this API is not implemented, some features may not work correctly.</p>
-<p>This method must return a relative principal path, or null, if the principal was not found or you refuse to find it.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramtype">string</td><td class="paramname">$uri</td><td></td></tr>
-    <tr><td class="paramtype">string</td><td class="paramname">$principalPrefix</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>string Returns the list of groups a principal is a member of</dd></dl>
+<p>Returns the list of groups a principal is a member of</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$principal</td><td></td></tr>
@@ -212,10 +203,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\NotFound</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
 </div>
 </div>
@@ -233,7 +225,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns a specific principal, specified by it's path. The returned structure should be the exact same as from getPrincipalsByPrefix.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>this could get optimized for sure!</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>this could get optimized for sure!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string</td><td class="paramname">$path</td><td></td></tr>
@@ -270,10 +262,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">\Sabre\DAV\Exception\NotFound</td><td>if another path was requested </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
 <p>Referenced by <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html#ac840a5ee20462b2e2872c6d6d12655b0">RedMatrix\RedDAV\RedPrincipalBackend\getPrincipalByPath()</a>.</p>
 
@@ -387,7 +380,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Updates one ore more webdav properties on a principal.</p>
-<p>The list of mutations is stored in a Sabre object. To do the actual updates, you must tell this object which properties you're going to process with the handle() method.</p>
+<p>The list of mutations is stored in a Sabre\DAV\PropPatch object. To do the actual updates, you must tell this object which properties you're going to process with the handle() method.</p>
 <p>Calling the handle method is like telling the PropPatch object "I
 promise I can handle updating this property".</p>
 <p>Read the PropPatch documenation for more info and examples.</p>

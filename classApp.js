@@ -67,6 +67,7 @@ var classApp =
     [ "$page", "classApp.html#a4b67935096f66d1f14b657399a8461ac", null ],
     [ "$pager", "classApp.html#a6bcb19cdc4907077da72864686d5a780", null ],
     [ "$path", "classApp.html#acad5896b7a79ae31433ad8f89606c728", null ],
+    [ "$pdl", "classApp.html#a69e5306d4c76b927e58d01be9b0c756a", null ],
     [ "$perms", "classApp.html#ab47de68fa39806d1fb0976407e188b77", null ],
     [ "$plugins", "classApp.html#ae9f96338f32187d308b67b980eea0008", null ],
     [ "$poi", "classApp.html#a1936f2afce0dc0d1bbed15ae1f2ee81a", null ],

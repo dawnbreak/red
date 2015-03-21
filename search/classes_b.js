@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['webdavexception',['WebdavException',['../classeasywebdav_1_1client_1_1WebdavException.html',1,'easywebdav::client']]]
+  ['zotdriver',['ZotDriver',['../classZotDriver.html',1,'']]],
+  ['zotsh',['ZotSH',['../classzotsh_1_1ZotSH.html',1,'zotsh']]]
 ];

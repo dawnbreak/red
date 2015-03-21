@@ -4,6 +4,7 @@ var NAVTREE =
     [ "CLI config utility", "md_util_config.html", null ],
     [ "Fresh - The Freaking REd Shell", "md_util_fresh.html", null ],
     [ "Todo List", "todo.html", null ],
+    [ "Fixme List", "fixme.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Namespaces", null, [
@@ -39,14 +40,14 @@ var NAVTREEINDEX =
 [
 "ACLTrait_8php.html",
 "boot_8php.html#a4edce16cb7f21cdafa1e85bf63d713e6",
-"classApp.html#a08f0537964d98958d218066364cff785",
-"classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a58e750256cdc2f0f79fbe8d5463ffefe",
-"contactgroup_8php.html#a18c7391b1b25debaf98c9dba639caab3",
-"friendica-to-smarty-tpl_8py.html#aadfe82ad1bfab628f28be27659123038",
-"include_2api_8php.html#ae0fa388479cace9c5a7a45b571ab42f8",
-"items_8php.html#ad65e3d4d8c537e560286b735a285e33e",
-"profile__photo_8php.html#a4b80234074bd603221aa5364f330e479",
-"text_8php.html#a4446c7f8996a280f7e08b7bfe6c6c8bc"
+"classApp.html#a08c24d6a6fc52fcc784b0f765f13b820",
+"classRedMatrix_1_1RedDAV_1_1RedDAVACL.html#aa73ab043ba4decb75161dfc771d7b200",
+"contact__selectors_8php.html",
+"friendica-to-smarty-tpl_8py.html#a0b4cf73d1a8d201a28d269eeb62a5d5c",
+"include_2api_8php.html#aa9dc5350b26d6c7727d6c4b641ecba18",
+"items_8php.html#aa371905f0a211b307cb3f7188c6cba04",
+"poke_8php.html#ac9190563a8da9c07a16f9dcd71cf6993",
+"text_8php.html#a29988052f3944111def3b6aaf2c7a8f6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

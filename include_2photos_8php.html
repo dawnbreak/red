@@ -133,8 +133,58 @@ Functions</h2></td></tr>
 <tr class="separator:a7e7abc69872180697c5471dc69349afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad648c0c5544fe9263409b6f6e57c6274"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2photos_8php.html#ad648c0c5544fe9263409b6f6e57c6274">photos_create_item</a> ($channel, $creator_hash, $photo, $visible=false)</td></tr>
 <tr class="separator:ad648c0c5544fe9263409b6f6e57c6274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a89ea1f441f83b72b1d1f8386cc7e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2photos_8php.html#af9a89ea1f441f83b72b1d1f8386cc7e2">getGps</a> ($exifCoord, $hemi)</td></tr>
+<tr class="separator:af9a89ea1f441f83b72b1d1f8386cc7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1fa00ef92e3677bf736a40cea7c29dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2photos_8php.html#ad1fa00ef92e3677bf736a40cea7c29dc">gps2Num</a> ($coordPart)</td></tr>
+<tr class="separator:ad1fa00ef92e3677bf736a40cea7c29dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="af9a89ea1f441f83b72b1d1f8386cc7e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getGps </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$exifCoord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$hemi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="include_2photos_8php.html#a6c40ef58aefef705a5adc84a40e97109">photo_upload()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1fa00ef92e3677bf736a40cea7c29dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gps2Num </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$coordPart</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="include_2photos_8php.html#af9a89ea1f441f83b72b1d1f8386cc7e2">getGps()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6c40ef58aefef705a5adc84a40e97109"></a>
 <div class="memitem">
 <div class="memproto">
@@ -165,9 +215,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Determine the album to use</p>
-<p>We create a wall item for every photo, but we don't want to overwhelm the data stream with a hundred newly uploaded photos. So we will make the first photo uploaded to this album in the last several hours visible by default, the rest will become visible over time when and if they acquire comments, likes, dislikes, and/or tags</p>
 
-<p>Referenced by <a class="el" href="mod_2photos_8php.html#a062bed4d04d14fee8a53f4c9be673080">photos_post()</a>, <a class="el" href="refimport_8php.html#ae9c56f779d1e0ac7bcb2a460129e7ae5">reflect_photo_callback()</a>, and <a class="el" href="wall__upload_8php.html#a7cbe204244cf9e0380ee932263a74d8f">wall_upload_post()</a>.</p>
+<p>Referenced by <a class="el" href="mod_2photos_8php.html#a062bed4d04d14fee8a53f4c9be673080">photos_post()</a>, <a class="el" href="refimport_8php.html#ae9c56f779d1e0ac7bcb2a460129e7ae5">reflect_photo_callback()</a>, <a class="el" href="wall__attach_8php.html#a7385e970e93228d082f0fd7254f6e653">wall_attach_post()</a>, and <a class="el" href="wall__upload_8php.html#a7cbe204244cf9e0380ee932263a74d8f">wall_upload_post()</a>.</p>
 
 </div>
 </div>
@@ -274,7 +323,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Renames a photo album in a channel. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Do we need to check if new album name already exists? <dl class="params"><dt>Parameters</dt><dd>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Do we need to check if new album name already exists? <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">int</td><td class="paramname">$channel_id</td><td>id of the channel </td></tr>
     <tr><td class="paramtype">string</td><td class="paramname">$oldname</td><td>The name of the album to rename </td></tr>

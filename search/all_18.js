@@ -24,7 +24,6 @@ var searchData=
   ['widget_5fclock',['widget_clock',['../widgets_8php.html#a9d60539db68042e63c0015abd69a6f7a',1,'widgets.php']]],
   ['widget_5fcollections',['widget_collections',['../widgets_8php.html#aa189a07241246d97efbee29f1c6a6f7f',1,'widgets.php']]],
   ['widget_5fdesign_5ftools',['widget_design_tools',['../widgets_8php.html#a145ff35319cfa47a9cc07f9425bd674b',1,'widgets.php']]],
-  ['widget_5fdirsafemode',['widget_dirsafemode',['../widgets_8php.html#a268b01ce1ab8fe2cb346cb769b9d1091',1,'widgets.php']]],
   ['widget_5fdirsort',['widget_dirsort',['../widgets_8php.html#a95c06bc9be133e89768746302d2ac395',1,'widgets.php']]],
   ['widget_5fdirtags',['widget_dirtags',['../widgets_8php.html#a08035db02ff6a23260146b4c64153422',1,'widgets.php']]],
   ['widget_5ffiler',['widget_filer',['../widgets_8php.html#a5ab3b64496e02cab56429978ad55f1c0',1,'widgets.php']]],

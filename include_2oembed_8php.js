@@ -7,5 +7,6 @@ var include_2oembed_8php =
     [ "oembed_format_object", "include_2oembed_8php.html#a26bb4c1e330d2f94ea7b6ce2fe970cf3", null ],
     [ "oembed_html2bbcode", "include_2oembed_8php.html#a000a62b97113cf95b0e9e00412168172", null ],
     [ "oembed_iframe", "include_2oembed_8php.html#a9e57f3e36a0a0a47e6db79544b701d9a", null ],
+    [ "oembed_process", "include_2oembed_8php.html#a512650f1bba4116b78fecd30b35666d0", null ],
     [ "oembed_replacecb", "include_2oembed_8php.html#a00c4c80deffd9daf8dc97b58d4c64ed0", null ]
 ];

@@ -104,11 +104,11 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000002"></a>File <a class="el" href="include_2config_8php.html">config.php</a>  </dt>
+<dt><a class="anchor" id="_todo000003"></a>File <a class="el" href="include_2config_8php.html">config.php</a>  </dt>
 <dd>There are a few places in the code (such as the admin panel) where boolean configurations need to be fixed as of 10/08/2011. </dd>
 <dt><a class="anchor" id="_todo000001"></a>globalScope&gt; Member <a class="el" href="boot_8php.html#a899d24fd074594ceebbf72e1feff335f">get_custom_nav</a>  (&amp;$a, $navname)</dt>
 <dd>not fully implemented yet </dd>
-<dt><a class="anchor" id="_todo000003"></a>globalScope&gt; Member <a class="el" href="include_2photos_8php.html#ab0365f25b22ccea5f085fe7c49e1f4ab">photos_album_rename</a>  ($channel_id, $oldname, $newname)</dt>
+<dt><a class="anchor" id="_todo000004"></a>globalScope&gt; Member <a class="el" href="include_2photos_8php.html#ab0365f25b22ccea5f085fe7c49e1f4ab">photos_album_rename</a>  ($channel_id, $oldname, $newname)</dt>
 <dd>Do we need to check if new album name already exists? <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">int</td><td class="paramname">$channel_id</td><td>id of the channel </td></tr>
@@ -119,14 +119,18 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool|array  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000007"></a>globalScope&gt; Member <a class="el" href="reddav_8php.html#a9f531641dfb4e43cd88ac1a9ae7e2088">RedFileData</a>  ($file, &amp;$auth, $test=false)</dt>
+<dt><a class="anchor" id="_todo000009"></a>globalScope&gt; Member <a class="el" href="reddav_8php.html#a9f531641dfb4e43cd88ac1a9ae7e2088">RedFileData</a>  ($file, &amp;$auth, $test=false)</dt>
 <dd>get rid of this </dd>
-<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a14ac61d31a031d139956763db4e03956">RedMatrix::setName</a>  ($name)</dt>
+<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a14ac61d31a031d139956763db4e03956">RedMatrix::setName</a>  ($name)</dt>
 <dd>handle duplicate directory name </dd>
-<dt><a class="anchor" id="_todo000005"></a>Class <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html">RedMatrix</a>  </dt>
-<dd>move quota checks to own plugin <a class="el" href=""><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </a> </dd>
-<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html#ac840a5ee20462b2e2872c6d6d12655b0">RedMatrix::getPrincipalByPath</a>  ($path)</dt>
-<dd>this could get optimized for sure!</dd>
+<dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html">RedMatrix</a>  </dt>
+<dd>move quota checks to own plugin </dd>
+<dt><a class="anchor" id="_todo000007"></a>Class <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html">RedMatrix</a>  </dt>
+<dd>right now we use xcan_hash as the uri. Maybe it would be nicer to use xchan_addr? </dd>
+<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html#ac840a5ee20462b2e2872c6d6d12655b0">RedMatrix::getPrincipalByPath</a>  ($path)</dt>
+<dd>this could get optimized for sure! </dd>
+<dt><a class="anchor" id="_todo000002"></a>globalScope&gt; Member <a class="el" href="account_8php.html#a905b54e10704b283ac64680a8abc0971">service_class_fetch</a>  ($uid, $property)</dt>
+<dd>Should we merge this with <a class="el" href="account_8php.html#a4328c40ee4b3d68630cf1ebb7b9d4d89" title="Queries a service class value for an account and property. ">account_service_class_fetch()</a>? </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

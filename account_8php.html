@@ -141,12 +141,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a0d183a3cb4c67a0f5e906811df7a1fc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#a0d183a3cb4c67a0f5e906811df7a1fc9">downgrade_accounts</a> ()</td></tr>
 <tr class="separator:a0d183a3cb4c67a0f5e906811df7a1fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a030cec6793b909c439c0336ba39b1571"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#a030cec6793b909c439c0336ba39b1571">service_class_allows</a> ($uid, $property, $usage=false)</td></tr>
+<tr class="memdesc:a030cec6793b909c439c0336ba39b1571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check service_class restrictions.  <a href="#a030cec6793b909c439c0336ba39b1571">More...</a><br /></td></tr>
 <tr class="separator:a030cec6793b909c439c0336ba39b1571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac70e1d198246b029a3cedb7d6f7868bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#ac70e1d198246b029a3cedb7d6f7868bd">account_service_class_allows</a> ($aid, $property, $usage=false)</td></tr>
+<tr class="memdesc:ac70e1d198246b029a3cedb7d6f7868bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check service class restrictions by account.  <a href="#ac70e1d198246b029a3cedb7d6f7868bd">More...</a><br /></td></tr>
 <tr class="separator:ac70e1d198246b029a3cedb7d6f7868bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a905b54e10704b283ac64680a8abc0971"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#a905b54e10704b283ac64680a8abc0971">service_class_fetch</a> ($uid, $property)</td></tr>
+<tr class="memdesc:a905b54e10704b283ac64680a8abc0971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries a service class value for a channel and property.  <a href="#a905b54e10704b283ac64680a8abc0971">More...</a><br /></td></tr>
 <tr class="separator:a905b54e10704b283ac64680a8abc0971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4328c40ee4b3d68630cf1ebb7b9d4d89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#a4328c40ee4b3d68630cf1ebb7b9d4d89">account_service_class_fetch</a> ($aid, $property)</td></tr>
+<tr class="memdesc:a4328c40ee4b3d68630cf1ebb7b9d4d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries a service class value for an account and property.  <a href="#a4328c40ee4b3d68630cf1ebb7b9d4d89">More...</a><br /></td></tr>
 <tr class="separator:a4328c40ee4b3d68630cf1ebb7b9d4d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc13e528367f510fcb6d8bbfc559040"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="account_8php.html#a4fc13e528367f510fcb6d8bbfc559040">upgrade_link</a> ($<a class="el" href="bbcode_8php.html#a009f61aaf78771737ed0765c8463911b">bbcode</a>=false)</td></tr>
 <tr class="separator:a4fc13e528367f510fcb6d8bbfc559040"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,6 +190,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check service class restrictions by account. </p>
+<p>If there are no service_classes defined, everything is allowed. If $usage is supplied, we check against a maximum count and return true if the current usage is less than the subscriber plan allows. Otherwise we return boolean true or false if the property is allowed (or not) in this subscriber plan. An unset property for this service plan means the property is allowed, so it is only necessary to provide negative properties for each plan, or what the subscriber is not allowed to do.</p>
+<p>Like <a class="el" href="account_8php.html#a030cec6793b909c439c0336ba39b1571" title="Check service_class restrictions. ">service_class_allows()</a> but queries directly by account rather than channel.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="account_8php.html#a030cec6793b909c439c0336ba39b1571" title="Check service_class restrictions. ">service_class_allows()</a> <a class="el" href="redable_8php.html#a3987f5547ceb7e36a210a66a06241a5a">if</a> you have a channel_id instead of an account_id </dd>
+<dd>
+<a class="el" href="account_8php.html#a4328c40ee4b3d68630cf1ebb7b9d4d89" title="Queries a service class value for an account and property. ">account_service_class_fetch()</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$aid</td><td>The account_id to check </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$property</td><td>The service class property to check for </td></tr>
+    <tr><td class="paramtype">int&#160;|&#160;boolean</td><td class="paramname">$usage,(optional)</td><td>The value to check against </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
 <p>Referenced by <a class="el" href="identity_8php.html#ac9fcd5c4c371998790b5c55c3d0f4633">identity_check_service_class()</a>.</p>
 
 </div>
@@ -214,7 +234,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="import_8php.html#af17fef0410518f7eac205d0ea416eaa2">import_post()</a>, <a class="el" href="manage_8php.html#a2bca247b5296827638959138367db4f5">manage_content()</a>, and <a class="el" href="zot_8php.html#ac301c67864917c35922257950ae0f95c">process_channel_sync_delivery()</a>.</p>
+<p>Queries a service class value for an account and property. </p>
+<p>Like <a class="el" href="account_8php.html#a905b54e10704b283ac64680a8abc0971" title="Queries a service class value for a channel and property. ">service_class_fetch()</a> but queries by account rather than channel.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="account_8php.html#a905b54e10704b283ac64680a8abc0971" title="Queries a service class value for a channel and property. ">service_class_fetch()</a> <a class="el" href="redable_8php.html#a3987f5547ceb7e36a210a66a06241a5a">if</a> you have channel_id. </dd>
+<dd>
+<a class="el" href="account_8php.html#ac70e1d198246b029a3cedb7d6f7868bd" title="Check service class restrictions by account. ">account_service_class_allows()</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$aid</td><td>The account_id to query </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$property</td><td>The service property name to check for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean|int </dd></dl>
+
+<p>Referenced by <a class="el" href="account_8php.html#ac70e1d198246b029a3cedb7d6f7868bd">account_service_class_allows()</a>, <a class="el" href="import_8php.html#af17fef0410518f7eac205d0ea416eaa2">import_post()</a>, <a class="el" href="manage_8php.html#a2bca247b5296827638959138367db4f5">manage_content()</a>, and <a class="el" href="zot_8php.html#ac301c67864917c35922257950ae0f95c">process_channel_sync_delivery()</a>.</p>
 
 </div>
 </div>
@@ -420,6 +454,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check service_class restrictions. </p>
+<p>If there are no service_classes defined, everything is allowed. If $usage is supplied, we check against a maximum count and return true if the current usage is less than the subscriber plan allows. Otherwise we return boolean true or false if the property is allowed (or not) in this subscriber plan. An unset property for this service plan means the property is allowed, so it is only necessary to provide negative properties for each plan, or what the subscriber is not allowed to do.</p>
+<p>Like <a class="el" href="account_8php.html#ac70e1d198246b029a3cedb7d6f7868bd" title="Check service class restrictions by account. ">account_service_class_allows()</a> but queries directly by account rather than channel. Service classes are set for accounts, so we look up the account for the channel and fetch the service class restrictions of the account.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="account_8php.html#ac70e1d198246b029a3cedb7d6f7868bd" title="Check service class restrictions by account. ">account_service_class_allows()</a> <a class="el" href="redable_8php.html#a3987f5547ceb7e36a210a66a06241a5a">if</a> you have a channel_id already </dd>
+<dd>
+<a class="el" href="account_8php.html#a905b54e10704b283ac64680a8abc0971" title="Queries a service class value for a channel and property. ">service_class_fetch()</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$uid</td><td>The channel_id to check </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$property</td><td>The service class property to check for </td></tr>
+    <tr><td class="paramtype">string&#160;|&#160;boolean</td><td class="paramname">$usage</td><td>(optional) The value to check against </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
 <p>Referenced by <a class="el" href="item_8php.html#a5b1b36cb301a94b38150074f0d424e74">item_check_service_class()</a>, and <a class="el" href="include_2follow_8php.html#ae387d4ae097c23d69f3247e7f08140c7">new_contact()</a>.</p>
 
 </div>
@@ -448,7 +498,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="include_2attach_8php.html#a84a8a64c4805e1525b42d4add464833f">attach_store()</a>, <a class="el" href="include_2chat_8php.html#acdc80dba4eb796c7472b21129b435422">chatroom_create()</a>, <a class="el" href="include_2chat_8php.html#a2c95b545e46bfee64faa05ecf0afea91">chatroom_enter()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a58e750256cdc2f0f79fbe8d5463ffefe">RedMatrix\RedDAV\RedDirectory\createFile()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedBrowser.html#af764d5f14df751f9ec86c34fab300c09">RedMatrix\RedDAV\RedBrowser\generateDirectoryIndex()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a69db443ed3c84938b4352fe515bf8d68">RedMatrix\RedDAV\RedDirectory\getQuotaInfo()</a>, <a class="el" href="include_2photos_8php.html#a6c40ef58aefef705a5adc84a40e97109">photo_upload()</a>, <a class="el" href="mod_2photos_8php.html#aa87382611a66ec5effdb2d78f13f5812">photos_content()</a>, <a class="el" href="poller_8php.html#a5f12df3a4738124b6c039971e87e76da">poller_run()</a>, <a class="el" href="zot_8php.html#ac301c67864917c35922257950ae0f95c">process_channel_sync_delivery()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a709ec1288d21ddf1353524435ab916f0">RedMatrix\RedDAV\RedFile\put()</a>, and <a class="el" href="widgets_8php.html#ad1bf7aa69e8d100d95faba17c7bc91cd">widget_follow()</a>.</p>
+<p>Queries a service class value for a channel and property. </p>
+<p>Service classes are set for accounts, so look up the account for this channel and fetch the service classe of the account.</p>
+<p>If no service class is available it returns false and everything should be allowed.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="account_8php.html#a4328c40ee4b3d68630cf1ebb7b9d4d89" title="Queries a service class value for an account and property. ">account_service_class_fetch()</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$uid</td><td>The channel_id to query </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$property</td><td>The service property name to check for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean|int</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Should we merge this with <a class="el" href="account_8php.html#a4328c40ee4b3d68630cf1ebb7b9d4d89" title="Queries a service class value for an account and property. ">account_service_class_fetch()</a>? </dd></dl>
+
+<p>Referenced by <a class="el" href="include_2attach_8php.html#a84a8a64c4805e1525b42d4add464833f">attach_store()</a>, <a class="el" href="include_2chat_8php.html#acdc80dba4eb796c7472b21129b435422">chatroom_create()</a>, <a class="el" href="include_2chat_8php.html#a2c95b545e46bfee64faa05ecf0afea91">chatroom_enter()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a58e750256cdc2f0f79fbe8d5463ffefe">RedMatrix\RedDAV\RedDirectory\createFile()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedBrowser.html#af764d5f14df751f9ec86c34fab300c09">RedMatrix\RedDAV\RedBrowser\generateDirectoryIndex()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDirectory.html#a69db443ed3c84938b4352fe515bf8d68">RedMatrix\RedDAV\RedDirectory\getQuotaInfo()</a>, <a class="el" href="include_2photos_8php.html#a6c40ef58aefef705a5adc84a40e97109">photo_upload()</a>, <a class="el" href="mod_2photos_8php.html#aa87382611a66ec5effdb2d78f13f5812">photos_content()</a>, <a class="el" href="poller_8php.html#a5f12df3a4738124b6c039971e87e76da">poller_run()</a>, <a class="el" href="zot_8php.html#ac301c67864917c35922257950ae0f95c">process_channel_sync_delivery()</a>, <a class="el" href="classRedMatrix_1_1RedDAV_1_1RedFile.html#a709ec1288d21ddf1353524435ab916f0">RedMatrix\RedDAV\RedFile\put()</a>, <a class="el" href="account_8php.html#a030cec6793b909c439c0336ba39b1571">service_class_allows()</a>, and <a class="el" href="widgets_8php.html#ad1bf7aa69e8d100d95faba17c7bc91cd">widget_follow()</a>.</p>
 
 </div>
 </div>
@@ -518,7 +582,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="admin_8php.html#a5a696706a3869800e65fb365214241b7">admin_page_users_post()</a>, and <a class="el" href="regmod_8php.html#a7953df4e32e63946565e90cdd5d50409">regmod_content()</a>.</p>
+<p>Referenced by <a class="el" href="admin_8php.html#a8e300c9c9bffc95caff3dfa9298bb640">admin_page_users_post()</a>, and <a class="el" href="regmod_8php.html#a7953df4e32e63946565e90cdd5d50409">regmod_content()</a>.</p>
 
 </div>
 </div>
@@ -554,7 +618,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="admin_8php.html#a5a696706a3869800e65fb365214241b7">admin_page_users_post()</a>, <a class="el" href="regmod_8php.html#a7953df4e32e63946565e90cdd5d50409">regmod_content()</a>, and <a class="el" href="regver_8php.html#ad2c5f644fd1b099abd7c715b7df6f50f">regver_content()</a>.</p>
+<p>Referenced by <a class="el" href="admin_8php.html#a8e300c9c9bffc95caff3dfa9298bb640">admin_page_users_post()</a>, <a class="el" href="regmod_8php.html#a7953df4e32e63946565e90cdd5d50409">regmod_content()</a>, and <a class="el" href="regver_8php.html#ad2c5f644fd1b099abd7c715b7df6f50f">regver_content()</a>.</p>
 
 </div>
 </div>

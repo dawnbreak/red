@@ -17,7 +17,7 @@ var admin_8php =
     [ "admin_page_summary", "admin_8php.html#ac6e95b920b5abd030cc522964987087a", null ],
     [ "admin_page_themes", "admin_8php.html#af124619fdc278fe2bf14c45ddaa260fb", null ],
     [ "admin_page_users", "admin_8php.html#a62f10f90c47686c9c3c37c4c03a108d2", null ],
-    [ "admin_page_users_post", "admin_8php.html#a5a696706a3869800e65fb365214241b7", null ],
+    [ "admin_page_users_post", "admin_8php.html#a8e300c9c9bffc95caff3dfa9298bb640", null ],
     [ "admin_post", "admin_8php.html#acf51f5837a7427832144c2bf7308ada3", null ],
     [ "rebuild_theme_table", "admin_8php.html#ae46311a3fefc21abc838a26e91789de6", null ],
     [ "theme_status", "admin_8php.html#ad4f74f33944a98b56d2c8c7601f124a4", null ],

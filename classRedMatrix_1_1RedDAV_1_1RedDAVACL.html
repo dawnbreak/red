@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('classRedMatrix_1_1RedDAV_1_1RedDAVACL.
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDAVACL.html" title="RedDAVACL implementation of DAVACL. ">RedDAVACL</a> implementation of DAVACL.  
+<p>DAVACL implementation of Sabre\DAVACL\Plugin.  
  <a href="classRedMatrix_1_1RedDAV_1_1RedDAVACL.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RedMatrix\RedDAV\RedDAVACL:</div>
@@ -149,13 +149,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a117249fb336c2a11d4cfb39e06147d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedDAVACL.html" title="RedDAVACL implementation of DAVACL. ">RedDAVACL</a> implementation of DAVACL. </p>
+<div class="textblock"><p>DAVACL implementation of Sabre\DAVACL\Plugin. </p>
 <p>This plugin provides functionality to enforce ACL permissions. ACL is defined in RFC3744.</p>
 <p>In addition it also provides support for the {DAV:}current-user-principal property, defined in RFC5397 and the {DAV:}expand-property report, as defined in RFC3253.</p>
-<p>It will map <a class="el" href="namespaceRedMatrix.html" title="Class Import. ">RedMatrix</a>'s roles view_storage to {DAV:}read and write_storage to {DAV:}write. additional permissions will be checked.</p>
+<p>It will map <a class="el" href="namespaceRedMatrix.html" title="Class Import. ">RedMatrix</a>'s roles view_storage to {DAV:}read and write_storage to {DAV:}write.</p>
 <p>A beforeMethod will hook into every communication and enforce these permissions together with some other methods that hook into creation, deletion, etc. operations.</p>
-<dl class="section see"><dt>See also</dt><dd>RedPrincipalsBackend</dd></dl>
-<p><a class="el" href="">Klaus Weidenbach  <a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </a></p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html" title="PrincipalBackend implementation of Sabre\DAVACL\PrincipalBackend\AbstractBackend. ...">RedPrincipalBackend</a></dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Klaus Weidenbach </dd></dl>
+<dl class="section user"><dt>License:</dt><dd><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> The MIT License (MIT) </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a67f140ea0f00c8715f3aa5899aab2f84"></a>
 <div class="memitem">
@@ -170,6 +171,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramtype">AuthPlugin</td><td class="paramname">&amp;$auth_plugin</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

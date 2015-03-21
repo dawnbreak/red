@@ -3,7 +3,7 @@ var comanche_8php =
     [ "comanche_block", "comanche_8php.html#a5a7ab801717d38e91ac910b933973887", null ],
     [ "comanche_get_channel_id", "comanche_8php.html#aed39ecad69234f3ddf61f0dedb49a58e", null ],
     [ "comanche_menu", "comanche_8php.html#ad5a44e42231759aba1dda49e0490501e", null ],
-    [ "comanche_parser", "comanche_8php.html#a1a208fdb40dd83d6298caec4290ee922", null ],
+    [ "comanche_parser", "comanche_8php.html#ac3c8268a17128eac5f7907a0bb0d990d", null ],
     [ "comanche_region", "comanche_8php.html#a5718daeda40bf835345fe061e8808cdf", null ],
     [ "comanche_replace_region", "comanche_8php.html#a028f004d5b8c23d6367816d899e17cfe", null ],
     [ "comanche_webpage", "comanche_8php.html#ae9fe1ce574db3dd0931eada80234f82a", null ],

@@ -38,6 +38,9 @@ var hierarchy =
       [ "FriendicaSmartyEngine", "classFriendicaSmartyEngine.html", null ],
       [ "Template", "classTemplate.html", null ]
     ] ],
+    [ "LightOpenIDProvider", null, [
+      [ "MysqlProvider", "classMysqlProvider.html", null ]
+    ] ],
     [ "Node", null, [
       [ "RedMatrix\\RedDAV\\RedDirectory", "classRedMatrix_1_1RedDAV_1_1RedDirectory.html", null ],
       [ "RedMatrix\\RedDAV\\RedFile", "classRedMatrix_1_1RedDAV_1_1RedFile.html", null ]
@@ -56,26 +59,13 @@ var hierarchy =
       [ "photo_imagick", "classphoto__imagick.html", null ]
     ] ],
     [ "Plugin", null, [
-      [ "RedMatrix\\RedDAV\\RedBrowser", "classRedMatrix_1_1RedDAV_1_1RedBrowser.html", null ]
+      [ "RedMatrix\\RedDAV\\RedDAVACL", "classRedMatrix_1_1RedDAV_1_1RedDAVACL.html", null ]
     ] ],
     [ "Plugin", null, [
-      [ "RedMatrix\\RedDAV\\RedDAVACL", "classRedMatrix_1_1RedDAV_1_1RedDAVACL.html", null ]
+      [ "RedMatrix\\RedDAV\\RedBrowser", "classRedMatrix_1_1RedDAV_1_1RedBrowser.html", null ]
     ] ],
     [ "ProtoDriver", "classProtoDriver.html", [
       [ "ZotDriver", "classZotDriver.html", null ]
-    ] ],
-    [ "Sabre", null, [
-      [ "RedMatrix\\RedDAV\\RedBasicAuth", "classRedMatrix_1_1RedDAV_1_1RedBasicAuth.html", null ],
-      [ "RedMatrix\\RedDAV\\RedBrowser", "classRedMatrix_1_1RedDAV_1_1RedBrowser.html", null ],
-      [ "RedMatrix\\RedDAV\\RedChannelsCollection", "classRedMatrix_1_1RedDAV_1_1RedChannelsCollection.html", null ],
-      [ "RedMatrix\\RedDAV\\RedDAVACL", "classRedMatrix_1_1RedDAV_1_1RedDAVACL.html", null ],
-      [ "RedMatrix\\RedDAV\\RedDirectory", "classRedMatrix_1_1RedDAV_1_1RedDirectory.html", null ],
-      [ "RedMatrix\\RedDAV\\RedDirectory", "classRedMatrix_1_1RedDAV_1_1RedDirectory.html", null ],
-      [ "RedMatrix\\RedDAV\\RedDirectory", "classRedMatrix_1_1RedDAV_1_1RedDirectory.html", null ],
-      [ "RedMatrix\\RedDAV\\RedDirectory", "classRedMatrix_1_1RedDAV_1_1RedDirectory.html", null ],
-      [ "RedMatrix\\RedDAV\\RedFile", "classRedMatrix_1_1RedDAV_1_1RedFile.html", null ],
-      [ "RedMatrix\\RedDAV\\RedFile", "classRedMatrix_1_1RedDAV_1_1RedFile.html", null ],
-      [ "RedMatrix\\RedDAV\\RedPrincipalBackend", "classRedMatrix_1_1RedDAV_1_1RedPrincipalBackend.html", null ]
     ] ],
     [ "Smarty", null, [
       [ "FriendicaSmarty", "classFriendicaSmarty.html", null ]

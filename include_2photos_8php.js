@@ -1,5 +1,7 @@
 var include_2photos_8php =
 [
+    [ "getGps", "include_2photos_8php.html#af9a89ea1f441f83b72b1d1f8386cc7e2", null ],
+    [ "gps2Num", "include_2photos_8php.html#ad1fa00ef92e3677bf736a40cea7c29dc", null ],
     [ "photo_upload", "include_2photos_8php.html#a6c40ef58aefef705a5adc84a40e97109", null ],
     [ "photos_album_exists", "include_2photos_8php.html#a8e8b7be99e24c2497bc2cb3339280c35", null ],
     [ "photos_album_get_db_idstr", "include_2photos_8php.html#a7e7abc69872180697c5471dc69349afe", null ],
