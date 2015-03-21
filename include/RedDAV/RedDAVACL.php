@@ -2,15 +2,15 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV,
-    Sabre\DAVACL,
-    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin,
-    Sabre\HTTP\RequestInterface,
-    Sabre\HTTP\ResponseInterface,
-    Sabre\HTTP\URLUtil;
+use Sabre\DAV;
+use Sabre\DAVACL;
+use Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
+use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+use Sabre\HTTP\URLUtil;
 
 /**
- * @brief RedDAVACL implementation of DAVACL\Plugin.
+ * @brief DAVACL implementation of Sabre\\DAVACL\\Plugin.
  *
  * This plugin provides functionality to enforce ACL permissions.
  * ACL is defined in RFC3744.
@@ -19,17 +19,15 @@ use Sabre\DAV,
  * property, defined in RFC5397 and the {DAV:}expand-property report, as
  * defined in RFC3253.
  *
- * It will map RedMatrix's roles view_storage to {DAV:}read and write_storage to {DAV:}write.
- * additional permissions will be checked.
+ * It will map RedMatrix's roles view_storage to {DAV:}read and write_storage
+ * to {DAV:}write.
  *
- * A beforeMethod will hook into every communication and enforce these permissions together
- * with some other methods that hook into creation, deletion, etc. operations.
+ * A beforeMethod will hook into every communication and enforce these permissions
+ * together with some other methods that hook into creation, deletion, etc.
+ * operations.
  *
- * @see RedPrincipalsBackend
+ * @see RedPrincipalBackend
  *
- * @extends \Sabre\DAVACL\Plugin
- *
- * @link http://github.com/friendica/red
  * @author Klaus Weidenbach
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
@@ -49,6 +47,11 @@ class RedDAVACL extends DAVACL\Plugin {
 	 */
 	private $auth;
 
+	/**
+	 * @brief Constructor for RedDAVACL.
+	 *
+	 * @param[in,out] AuthPlugin &$auth_plugin
+	 */
 	public function __construct(AuthPlugin &$auth_plugin) {
 		$this->auth = $auth_plugin;
 	}

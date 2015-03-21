@@ -2,23 +2,17 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV,
-    Sabre\DAVACL,
-    Sabre\HTTP\URLUtil,
-    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin,
-    RedMatrix\RedDAV;
+use Sabre\DAV;
+use Sabre\DAVACL;
+use Sabre\HTTP\URLUtil;
+use RedMatrix\RedDAV\RedBasicAuth as RedAuth;
+use RedMatrix\RedDAV;
 
 /**
- * @brief RedDirectory class.
+ * @brief This class represents a directory node in DAV.
  *
  * A class that represents a directory.
  *
- * @extends \Sabre\DAV\Node
- * @implements \Sabre\DAV\ICollection
- * @implements \Sabre\DAV\IQuota
- * @implements \Sabre\DAVACL\IACL
- *
- * @link http://github.com/friendica/red
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
 class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, DAVACL\IACL */ {
@@ -55,13 +49,13 @@ class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, D
 	 * @brief Sets up the directory node, expects a full path.
 	 *
 	 * @param string $ext_path a full path
-	 * @throws \Sabre\DAV\Exception\Forbidden
-	 * @throws \Sabre\DAV\Exception\NotFound
-	 * @param RedDAV\RedBasicAuth $auth_plugin
+	 * @param RedDAV\RedBasicAuth $auth
+	 * @throws "\Sabre\DAV\Exception\Forbidden"
+	 * @throws "\Sabre\DAV\Exception\NotFound"
 	 */
-	public function __construct($ext_path, AuthPlugin $auth_plugin) {
+	public function __construct($ext_path, RedAuth $auth) {
 		logger('Directory ' . $ext_path, LOGGER_DATA);
-		$this->auth = $auth_plugin;
+		$this->auth = $auth;
 
 		$this->red_path = $ext_path;
 		if (! $this->red_path) {
@@ -146,10 +140,11 @@ class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, D
 	/**
 	 * @brief Returns an array with all the child nodes.
 	 *
-	 * Array with all RedDirectory and RedFile DAV\Node items for the given path.
+	 * Array with all RedDirectory and RedFile Sabre\\DAV\\Node items for the
+	 * given path.
 	 *
-	 * @throw \Sabre\DAV\Exception\Forbidden
-	 * @return array \Sabre\DAV\INode[]
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
+	 * @return array \\Sabre\\DAV\\INode[]
 	 */
 	public function getChildren() {
 		logger('Children for ' . $this->red_path, LOGGER_DATA);
@@ -211,8 +206,8 @@ class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, D
 	/**
 	 * @brief Returns a child by name.
 	 *
-	 * @throw \Sabre\DAV\Exception\Forbidden
-	 * @throw \Sabre\DAV\Exception\NotFound
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
+	 * @throw "\Sabre\DAV\Exception\NotFound"
 	 * @param string $name
 	 */
 	public function getChild($name) {
@@ -244,7 +239,7 @@ class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, D
 	 *
 	 * @todo handle duplicate directory name
 	 *
-	 * @throw \Sabre\DAV\Exception\Forbidden
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
 	 * @param string $name The new name of the directory.
 	 * @return void
 	 */
@@ -280,7 +275,7 @@ class RedDirectory extends DAV\Node implements DAV\ICollection, DAV\IQuota /*, D
 	 * After successful creation of the file, you may choose to return the ETag
 	 * of the new file here.
 	 *
-	 * @throw \Sabre\DAV\Exception\Forbidden
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
 	 * @param string $name Name of the file
 	 * @param resource|string $data Initial payload
 	 * @return null|string ETag

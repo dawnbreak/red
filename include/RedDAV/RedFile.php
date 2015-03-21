@@ -2,19 +2,16 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV,
-    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
+use Sabre\DAV;
+use RedMatrix\RedDAV\RedBasicAuth as RedAuth;
 
 /**
- * @brief This class represents a file in DAV.
+ * @brief This class represents a file node in DAV.
  *
  * It provides all functions to work with files in Red's cloud through DAV protocol.
  *
- * @extends \Sabre\DAV\Node
- * @implements \Sabre\DAV\IFile
- *
  * @todo move quota checks to own plugin
- * @link http://github.com/friendica/red
+ *
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
 class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
@@ -48,7 +45,7 @@ class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
 	 * @param array $data from attach table
 	 * @param RedDAV\RedBasicAuth $auth
 	 */
-	public function __construct($name, $data, AuthPlugin $auth) {
+	public function __construct($name, $data, RedAuth $auth) {
 		$this->name = $name;
 		$this->data = $data;
 		$this->auth = $auth;
@@ -72,9 +69,8 @@ class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
 	/**
 	 * @brief Renames the file.
 	 *
-	 * @throw Sabre\DAV\Exception\Forbidden
-	 * @param string $name The new name of the file.
-	 * @return void
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
+	 * @param string $newName The new name of the file.
 	 */
 	public function setName($newName) {
 		logger('old name ' . basename($this->name) . ' -> ' . $newName, LOGGER_DATA);
@@ -218,6 +214,7 @@ class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
 	 * Return null if the ETag can not effectively be determined.
 	 *
 	 * @bug $this->data['hash'] is not qualifying as an ETag as it does not change when file changes.
+	 *
 	 * @return null|string
 	 */
 	public function getETag() {
@@ -272,7 +269,7 @@ class RedFile extends DAV\Node implements DAV\IFile /*, DAVACL\IACL */ {
 	 * This method checks the permissions and then calls attach_delete() function
 	 * to actually remove the file.
 	 *
-	 * @throw \Sabre\DAV\Exception\Forbidden
+	 * @throw "\Sabre\DAV\Exception\Forbidden"
 	 */
 	public function delete() {
 		logger('delete file ' . basename($this->name), LOGGER_DEBUG);

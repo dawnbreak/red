@@ -6,14 +6,14 @@
  * Module for accessing the DAV storage area.
  */
 
-use Sabre\DAV,
-    Sabre\DAVACL,
-    RedMatrix\RedDAV;
+use Sabre\DAV;
+use Sabre\DAVACL;
+use RedMatrix\RedDAV;
 
 // workaround for HTTP-auth in CGI mode
 if (x($_SERVER, 'REDIRECT_REMOTE_USER')) {
  	$userpass = base64_decode(substr($_SERVER["REDIRECT_REMOTE_USER"], 6)) ;
-	if(strlen($userpass)) {
+	if (strlen($userpass)) {
 	 	list($name, $password) = explode(':', $userpass);
 		$_SERVER['PHP_AUTH_USER'] = $name;
 		$_SERVER['PHP_AUTH_PW'] = $password;
@@ -22,7 +22,7 @@ if (x($_SERVER, 'REDIRECT_REMOTE_USER')) {
 
 if (x($_SERVER, 'HTTP_AUTHORIZATION')) {
 	$userpass = base64_decode(substr($_SERVER["HTTP_AUTHORIZATION"], 6)) ;
-	if(strlen($userpass)) {
+	if (strlen($userpass)) {
 		list($name, $password) = explode(':', $userpass);
 		$_SERVER['PHP_AUTH_USER'] = $name;
 		$_SERVER['PHP_AUTH_PW'] = $password;

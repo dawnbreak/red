@@ -2,11 +2,11 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV,
-    Sabre\HTTP\URLUtil,
-    Sabre\HTTP\RequestInterface,
-    Sabre\HTTP\ResponseInterface,
-    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
+use Sabre\DAV;
+use Sabre\HTTP\URLUtil;
+use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+use Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
 
 /**
  * @brief Provides a DAV frontend for the webbrowser.
@@ -14,9 +14,6 @@ use Sabre\DAV,
  * RedBrowser is a SabreDAV server-plugin to provide a view to the DAV storage
  * for the webbrowser.
  *
- * @extends \Sabre\DAV\Browser\Plugin
- *
- * @link http://github.com/friendica/red
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
 class RedBrowser extends DAV\Browser\Plugin {
@@ -400,13 +397,12 @@ class RedBrowser extends DAV\Browser\Plugin {
 	 *
 	 * @param int $owner
 	 *  The owner_id
-	 * @param string $hash
+	 * @param string $parentHash
 	 *  The parent's folder hash
 	 * @param string $attachName
 	 *  The name of the attachment
 	 * @return string
 	 */
-
 	protected function findAttachHash($owner, $parentHash, $attachName) {
 		$hash = '';
 

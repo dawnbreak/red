@@ -2,9 +2,9 @@
 
 namespace RedMatrix\RedDAV;
 
-use Sabre\DAV,
-    Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin,
-    RedMatrix\RedDAV;
+use Sabre\DAV;
+use Sabre\DAV\Auth\Backend\BackendInterface as AuthPlugin;
+use RedMatrix\RedDAV;
 
 /**
  * @brief Collection of RedMatrix channels.
@@ -12,9 +12,6 @@ use Sabre\DAV,
  * A class that creates a list of accessible channels as an collection to be
  * used as a node in a Sabre server node tree.
  *
- * @extends \Sabre\DAV\Collection
- *
- * @link http://github.com/friendica/red
  * @author Klaus Weidenbach
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
@@ -37,10 +34,10 @@ class RedChannelsCollection extends DAV\Collection {
 	/**
 	 * @brief Returns an array with all viewable the channels.
 	 *
-	 * Get a list of RedDAV\RedDirectory objects with all the channels where
+	 * Get a list of RedDAV\\RedDirectory objects with all the channels where
 	 * the visitor (observer) has <b>view_storage</b> perms.
 	 *
-	 * @return \Sabre\DAV\INode[]
+	 * @return \\Sabre\\DAV\\INode[]
 	 */
 	function getChildren() {
 		logger('Children for channels collection.', LOGGER_DEBUG);
@@ -66,13 +63,13 @@ class RedChannelsCollection extends DAV\Collection {
 	/**
 	 * @brief Returns a specific child node, referenced by its name.
 	 *
-	 * This method must throw Sabre\DAV\Exception\NotFound if the node does not
-	 * exist.
+	 * This method must throw \\Sabre\\DAV\\Exception\\NotFound if the node does
+	 * not exist.
 	 *
 	 * @param string $name
-	 * @throws \Sabre\DAV\Exception\NotFound
-	 * @throws \Sabre\DAV\Exception\Forbidden
-	 * @return \Sabre\DAV\INode in our case it is always a RedDAV\RedDirectory
+	 * @throws "\Sabre\DAV\Exception\NotFound"
+	 * @throws "\Sabre\DAV\Exception\Forbidden"
+	 * @return \\Sabre\\DAV\\INode in our case it is always a RedDAV\\RedDirectory
 	 */
 	function getChild($name) {
 		// generic implementation of getChild(), but too much overhead
@@ -95,11 +92,11 @@ class RedChannelsCollection extends DAV\Collection {
 	 * @brief Checks if a child-node exists.
 	 *
 	 * childExists() gets called when we don't have yet a complete
-	 * RedDAV\RedBasicAuth object. Especially owner_ is not yet available. This
-	 * is also the reason why we can not create RedDAV\RedDirectory entries here.
+	 * RedDAV\\RedBasicAuth object. Especially owner_ is not yet available. This
+	 * is also the reason why we can not create RedDAV\\RedDirectory entries here.
 	 *
 	 * @param string $name Name of a channel to check.
-	 * @throws \Sabre\DAV\Exception\Forbidden
+	 * @throws "\Sabre\DAV\Exception\Forbidden"
 	 * @return bool
 	 */
 	function childExists($name) {

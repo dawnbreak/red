@@ -10,9 +10,6 @@ use Sabre\DAV;
  * This class also contains some data which is not necessary for authentication
  * like timezone settings.
  *
- * @extends Sabre\DAV\Auth\Backend\AbstractBasic
- *
- * @link http://github.com/friendica/red
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
 class RedBasicAuth extends DAV\Auth\Backend\AbstractBasic {
@@ -94,7 +91,7 @@ class RedBasicAuth extends DAV\Auth\Backend\AbstractBasic {
 	 *
 	 * Guest access is granted with the password "+++".
 	 *
-	 * @see \Sabre\DAV\Auth\Backend\AbstractBasic::validateUserPass
+	 * @see \\Sabre\\DAV\ßAuth\\Backend\ßAbstractBasic::validateUserPass()
 	 * @param string $username
 	 * @param string $password
 	 * @return bool
@@ -173,7 +170,7 @@ class RedBasicAuth extends DAV\Auth\Backend\AbstractBasic {
 	 *
 	 * If nobody is currently logged in, this method should return null.
 	 *
-	 * @see \Sabre\DAV\Auth\Backend\AbstractBasic::getCurrentUser
+	 * @see \\Sabre\\DAV\\Auth\\Backend\\AbstractBasic::getCurrentUser()
 	 * @return string|null the current channel's channel_address
 	 */
 	public function getCurrentUser() {

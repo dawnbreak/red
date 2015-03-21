@@ -7,9 +7,8 @@ use Sabre\DAV;
 /**
  * @brief Trait for implementing ACL in our classes.
  *
- * Use this trait in our classes that implemente Sabre\DAVACL\IACL.
+ * Use this trait in our classes that implement \\Sabre\\DAVACL\\IACL.
  *
- * @link http://github.com/friendica/red
  * @author Klaus Weidenbach
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  */
@@ -82,7 +81,7 @@ trait ACLTrait {
 	 * Returns the list of supported privileges for this node.
 	 *
 	 * The returned data structure is a list of nested privileges.
-	 * See Sabre\DAVACL\Plugin::getDefaultSupportedPrivilegeSet for a simple
+	 * See Sabre\\DAVACL\\Plugin::getDefaultSupportedPrivilegeSet for a simple
 	 * standard structure.
 	 *
 	 * If null is returned from this method, the default privilege set is used,
